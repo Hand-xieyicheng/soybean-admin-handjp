@@ -40,6 +40,18 @@ export const generatedRoutes: GeneratedRoute[] = [
     }
   },
   {
+    name: 'book-page',
+    path: '/book-page',
+    component: 'layout.base$view.book-page',
+    meta: {
+      title: 'book-page',
+      i18nKey: 'route.book-page',
+      icon: 'mdi:monitor-dashboard',
+      order: 2,
+      roles: ['R_SUPER', 'R_ADMIN']
+    }
+  },
+  {
     name: 'home',
     path: '/home',
     component: 'layout.base$view.home',
