@@ -577,6 +577,7 @@ declare namespace App {
       message: string;
       /** The backend service response data */
       result: T;
+      body: T;
     };
   }
 }

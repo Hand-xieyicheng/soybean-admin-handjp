@@ -42,14 +42,35 @@ export const generatedRoutes: GeneratedRoute[] = [
   {
     name: 'book-page',
     path: '/book-page',
-    component: 'layout.base$view.book-page',
+    component: 'layout.base',
     meta: {
       title: 'book-page',
       i18nKey: 'route.book-page',
       icon: 'mdi:monitor-dashboard',
       order: 2,
       roles: ['R_SUPER', 'R_ADMIN']
-    }
+    },
+    children: [
+      {
+        name: 'book-page_book',
+        path: '/book-page/book',
+        component: 'view.book-page_book',
+        meta: {
+          title: 'book-page_book',
+          i18nKey: 'route.book-page_book'
+        }
+      },
+      {
+        name: 'book-page_lesson',
+        path: '/book-page/lesson/:id',
+        component: 'view.book-page_lesson',
+        meta: {
+          title: 'book-page_lesson',
+          hideInMenu: true,
+          i18nKey: 'route.book-page_lesson'
+        }
+      }
+    ]
   },
   {
     name: 'home',
