@@ -18,9 +18,9 @@ export function fetchGetLessonListByBookId(id: number) {
   return demoRequest({ url: '/lesson/getLessonListByBookId', params: { admin: true, id } });
 }
 
-/** Get user info */
-export function fetchGetUserInfo() {
-  return request<Api.Auth.UserInfo>({ url: '/auth/getUserInfo' });
+/** Get Article Data */
+export function fetchGetArticleDataByLessonId(id: number) {
+  return demoRequest({ url: '/translate/getArticleByLessonId', params: { id } });
 }
 
 /**

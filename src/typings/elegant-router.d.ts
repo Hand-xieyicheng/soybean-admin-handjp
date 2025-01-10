@@ -21,6 +21,7 @@ declare module "@elegant-router/types" {
     "404": "/404";
     "500": "/500";
     "book-page": "/book-page";
+    "book-page_article": "/book-page/article/:id";
     "book-page_book": "/book-page/book";
     "book-page_lesson": "/book-page/lesson/:id";
     "home": "/home";
@@ -85,8 +86,8 @@ declare module "@elegant-router/types" {
     | "500"
     | "iframe-page"
     | "login"
+    | "book-page_article"
     | "book-page_book"
-    | "book-page"
     | "book-page_lesson"
     | "home"
   >;
@@ -160,7 +161,7 @@ declare module "@elegant-router/types" {
         component: `view.${K}`;
       }
     : never;
-  
+
   /**
    * the center level route
    */
@@ -183,7 +184,7 @@ declare module "@elegant-router/types" {
         children: (CenterLevelRoute<GetChildRouteKey<K>> | LastLevelRoute<GetChildRouteKey<K>>)[];
       }
     : never;
-  
+
   /**
    * the custom first level route
    */

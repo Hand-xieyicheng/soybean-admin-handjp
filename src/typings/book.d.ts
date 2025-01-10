@@ -24,5 +24,40 @@ declare namespace Book {
       article_id: number;
       conversation_image: string;
     }
+    interface Article {
+      article_id: number;
+      book_id: number;
+      conversation: Conversation[];
+      conversation_audio: string;
+      conversation_image: string;
+      example: Example[];
+      example_audio: string;
+      lesson_id: number;
+      lesson_info: string;
+      lesson_name: string;
+      lesson_status: number;
+      conversques_countation_image: number;
+      sentence: Sentence[];
+      sentence_audio: string;
+      word_count: number;
+    }
+    interface Sentence{
+      ruby: string;
+      sentence: string;
+      translate: string;
+    }
+    interface Example{
+      ruby: string;
+      sentence: string;
+      translate: string;
+    }
+    interface Conversation {
+      name: string;
+      nameRuby: string;
+      nameTranslate: string;
+      ruby: string;
+      sentence: string;
+      translate: string;
+    }
   }
 }

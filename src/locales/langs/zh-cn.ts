@@ -165,7 +165,8 @@ const local: App.I18n.Schema = {
     home: '首页',
     'book-page': 'Hand日语',
     'book-page_book': '书籍',
-    'book-page_lesson': '课程'
+    'book-page_lesson': '课程',
+    'book-page_article': '文章',
   },
   page: {
     login: {

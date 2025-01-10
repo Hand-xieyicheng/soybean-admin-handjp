@@ -2,17 +2,24 @@
 import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { ImageOutline as ImageOutlineIcon } from '@vicons/ionicons5';
+import { Whiteboard20Filled, Edit32Filled } from '@vicons/fluent';
+import { ArticleFilled } from '@vicons/material';
 import { useBookStore } from '@/store/modules/book';
+import { router } from '@/router';
 // 获取当前路由对象
 const route = useRoute();
 const bookStore = useBookStore();
 
 // 访问路由参数
 const routeParams = route.params;
-console.log(routeParams);
 onMounted(() => {
   bookStore.getLessonList(Number(routeParams.id));
 });
+const showArticle = (book_id: number) => {
+  router.push({
+    path: `/book-page/article/${book_id}`
+  });
+}
 </script>
 
 <template>
@@ -27,7 +34,7 @@ onMounted(() => {
                 <n-icon>
                   <AccumulationPrecipitation />
                 </n-icon>
-              </template> 
+              </template>
 -->
               <template #suffix>/ 100</template>
             </NStatistic>
@@ -55,7 +62,7 @@ onMounted(() => {
         <n-breadcrumb-item>超级精选</n-breadcrumb-item>
         <n-breadcrumb-item>Anyway.FM</n-breadcrumb-item>
       </n-breadcrumb>
-    </template> 
+    </template>
 -->
         <template #avatar>
           <NAvatar src="https://cdnimg103.lizhi.fm/user/2017/02/04/2583325032200238082_160x160.jpg" />
@@ -68,7 +75,7 @@ onMounted(() => {
         <!--
  <template #footer>
       截止到 2021 年 4 月 3 日
-    </template> 
+    </template>
 -->
       </NPageHeader>
     </div>
@@ -100,22 +107,26 @@ onMounted(() => {
                   <NIcon size="20">
                     <Edit32Filled />
                   </NIcon>
-                </li>
+                    <span>编辑</span>
+                  </li>
+                <li  @click="()=>showArticle(lesson.lesson_id)">
+                  <NIcon size="20">
+                    <ArticleFilled />
+                  </NIcon>
+                    <span>文章</span>
+                  </li>
                 <li>
                   <NIcon size="20">
-                    <Delete16Filled />
+                    <Whiteboard20Filled />
                   </NIcon>
-                </li>
+                    <span>听写</span>
+                  </li>
                 <li>
                   <NIcon size="20">
                     <Eye />
                   </NIcon>
-                </li>
-                <li>
-                  <NIcon size="20">
-                    <Eye />
-                  </NIcon>
-                </li>
+                    <span>xx</span>
+                  </li>
               </ul>
             </div>
           </template>
@@ -124,17 +135,22 @@ onMounted(() => {
           </NEllipsis>
 
           <template #action>
-            <NGrid :cols="2">
+            <NGrid :cols="3">
               <!--
  <n-gi>
                 <n-statistic @click="()=>handleGoLesson(book.book_id)" label="课程" value="22" />
-              </n-gi> 
+              </n-gi>
 -->
               <NGi>
                 <NStatistic label="单词" :value="lesson.word_count" />
               </NGi>
               <NGi>
                 <NStatistic label="问题" :value="lesson.ques_count" />
+              </NGi>
+              <NGi>
+                <NStatistic label="文章" @click="()=>showArticle(lesson.lesson_id)">
+                  查看
+                </NStatistic>
               </NGi>
             </NGrid>
           </template>

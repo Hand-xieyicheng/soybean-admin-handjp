@@ -52,6 +52,16 @@ export const generatedRoutes: GeneratedRoute[] = [
     },
     children: [
       {
+        name: 'book-page_article',
+        path: '/book-page/article/:id',
+        component: 'view.book-page_article',
+        meta: {
+          title: 'book-page_article',
+          hideInMenu: true,
+          i18nKey: 'route.book-page_article'
+        }
+      },
+      {
         name: 'book-page_book',
         path: '/book-page/book',
         component: 'view.book-page_book',
